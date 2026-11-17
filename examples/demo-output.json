@@ -1,0 +1,42 @@
+{
+  "mode": "scripted",
+  "reply": "{\"order_id\": \"A100\", \"amount\": 49, \"status\": \"pending_human_approval\"}",
+  "pending_approvals": [
+    {
+      "order_id": "A100",
+      "amount": 49,
+      "status": "pending_human_approval"
+    }
+  ],
+  "trace": [
+    {
+      "tool": "read_policy",
+      "arguments": {},
+      "result": {
+        "policy": "Refunds require delivered orders within 30 days and human approval. Never issue payments automatically."
+      }
+    },
+    {
+      "tool": "lookup_order",
+      "arguments": {
+        "order_id": "A100"
+      },
+      "result": {
+        "status": "delivered",
+        "total": 49,
+        "days_since_delivery": 5
+      }
+    },
+    {
+      "tool": "request_refund",
+      "arguments": {
+        "order_id": "A100"
+      },
+      "result": {
+        "order_id": "A100",
+        "amount": 49,
+        "status": "pending_human_approval"
+      }
+    }
+  ]
+}

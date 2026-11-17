@@ -1,0 +1,9 @@
+[project]
+name = "approval-support-agent"
+version = "0.1.0"
+description = "A bounded tool-using support agent with policy checks, an approval queue, and auditable traces."
+requires-python = ">=3.11"
+dependencies = []
+license = "MIT"
+[tool.ruff]
+line-length = 110
